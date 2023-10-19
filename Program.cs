@@ -24,6 +24,7 @@ namespace pokeApp
             var input = Console.ReadLine();
 
             Pokemon? pokemon = await client.GetFromJsonAsync<Pokemon>($"pokemon/{input}");
+            Pokemon? type = await client.GetFromJsonAsync<Pokemon>($"type/{input}");
             Console.WriteLine($"Name: {pokemon?.Name}");
             Console.WriteLine($"Id: {pokemon?.Id}");
             Console.WriteLine($"Type: {pokemon?.Type}");
