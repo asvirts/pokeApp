@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net.Http;
 using System.Net.Http.Json;
+using pokeApp.Entities;
 
 namespace pokeApp
 {
@@ -17,10 +18,10 @@ namespace pokeApp
             Console.Write("Search for a Pokemon by name or id: ");
             var input = Console.ReadLine();
 
-            Pokemon? pokemon = await client.GetFromJsonAsync<Pokemon>($"pokemon/{input}");
-            Pokemon? type = await client.GetFromJsonAsync<Pokemon>($"type/{input}");
-            Console.WriteLine($"Name: {pokemon?.Name}");
-            Console.WriteLine($"Id: {pokemon?.Id}");
+            Pokemon pokemon = await client.GetFromJsonAsync<Pokemon>($"pokemon/{input}");
+            Pokemon type = await client.GetFromJsonAsync<Pokemon>($"type/{input}");
+            Console.WriteLine($"Name: {pokemon.Name}");
+            Console.WriteLine($"Id: {pokemon.Id}");
             // Console.WriteLine($"Type: {pokemon?.Types}");
         }
     }
