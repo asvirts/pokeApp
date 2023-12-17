@@ -1,14 +1,19 @@
-﻿namespace pokeApp
+﻿using System.Net.Http.Json;
+using pokeApp.Entities;
+
+namespace pokeApp
 {
 
     public class Program
     {
         public static async Task Main()
         {
-            using HttpClient client = new()
+            using var client = new HttpClient()
             {
                 BaseAddress = new Uri("https://pokeapi.co/api/v2/")
             };
+
+            await client.GetFromJsonAsync(Pokemon);
 
             string input = "";
 
