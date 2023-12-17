@@ -15,12 +15,12 @@
             while (input != "exit")
             {
                 Console.Write("Search for a Pokemon by Id or type 'exit' to exit the app: ");
-                input = Console.ReadLine();
+                input = Console.ReadLine().ToLower();
                 Console.WriteLine(input);
             }
 
             return;
+
         }
     }
 }
-
