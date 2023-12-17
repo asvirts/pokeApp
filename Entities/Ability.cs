@@ -1,6 +1,8 @@
-﻿namespace pokeApp.Entities;
+﻿using System.Net;
 
-public class Ability
+namespace pokeApp.Entities;
+
+public class Ability : HttpClient
 {
     public Ability1 ability { get; set; }
     public bool is_hidden { get; set; }
