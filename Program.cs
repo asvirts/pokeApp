@@ -13,7 +13,7 @@ namespace pokeApp
                 BaseAddress = new Uri("https://pokeapi.co/api/v2/")
             };
 
-            await client.GetFromJsonAsync(Pokemon);
+            await client.GetFromJsonAsync();
 
             string input = "";
 
