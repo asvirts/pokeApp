@@ -1,9 +1,4 @@
-﻿using System;
-using System.Net.Http;
-using System.Net.Http.Json;
-using pokeApp.Entities;
-
-namespace pokeApp
+﻿namespace pokeApp
 {
 
     public class Program
@@ -15,14 +10,16 @@ namespace pokeApp
                 BaseAddress = new Uri("https://pokeapi.co/api/v2/")
             };
 
-            Console.Write("Search for a Pokemon by name or id: ");
-            var input = Console.ReadLine();
+            string input = "";
 
-            Pokemon pokemon = await client.GetFromJsonAsync<Pokemon>($"pokemon/{input}");
-            Pokemon type = await client.GetFromJsonAsync<Pokemon>($"type/{input}");
-            Console.WriteLine($"Name: {pokemon.Name}");
-            Console.WriteLine($"Id: {pokemon.Id}");
-            // Console.WriteLine($"Type: {pokemon?.Types}");
+            while (input != "exit")
+            {
+                Console.Write("Search for a Pokemon by Id or type 'exit' to exit the app: ");
+                input = Console.ReadLine();
+                Console.WriteLine(input);
+            }
+
+            return;
         }
     }
 }
