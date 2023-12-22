@@ -1,4 +1,5 @@
-﻿using System.Net.Http.Json;
+﻿using System.Net;
+using System.Net.Http.Json;
 using pokeApp.Entities;
 
 namespace pokeApp
@@ -10,12 +11,10 @@ namespace pokeApp
         {
             using var client = new HttpClient()
             {
-                BaseAddress = new Uri("https://pokeapi.co/api/v2/")
+                BaseAddress = new Uri("https://pokeapi.co/api/v2/pokemon")
             };
 
-            await client.GetFromJsonAsync();
-
-            string input = "";
+            string? input = "";
 
             while (input != "exit")
             {
